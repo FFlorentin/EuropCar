@@ -5,4 +5,5 @@ package com.example.fgallet2016.europcar.DAO;
  */
 
 public class UtilisateurDAO {
+    private String test;
 }
