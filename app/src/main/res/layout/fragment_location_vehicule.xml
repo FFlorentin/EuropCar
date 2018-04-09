@@ -1,13 +1,39 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.fgallet2016.europcar.Fragment.LocationVehiculeFragment">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.example.fgallet2016.europcar.Fragment.ModifAgenceFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/raison_social"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="Raison social"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/siret"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Siret"/>
+
+    <TextView
+        android:id="@+id/voie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Voie"/>
+
+    <TextView
+        android:id="@+id/code_postal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Code Postal"/>
+
+    <TextView
+        android:id="@+id/ville"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ville"/>
+
+</LinearLayout>
