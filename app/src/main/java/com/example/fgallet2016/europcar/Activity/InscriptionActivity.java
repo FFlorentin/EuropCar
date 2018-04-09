@@ -1,15 +1,45 @@
 package com.example.fgallet2016.europcar.Activity;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.fgallet2016.europcar.Fragment.InscriptionFragment;
+import com.example.fgallet2016.europcar.Model.Utilisateur;
 import com.example.fgallet2016.europcar.R;
 
-public class InscriptionActivity extends AppCompatActivity {
+public class InscriptionActivity extends AppCompatActivity implements InscriptionFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
+    }
+
+    @Override
+    public void ajoutInscrit() {
+        class ConnexionTask extends AsyncTask<Utilisateur, Integer, Boolean>{
+
+
+            @Override
+            protected Boolean doInBackground(Utilisateur... utilisateurs) {
+                return true;
+            }
+
+            @Override
+            protected void onPostExecute(Boolean aBoolean) {
+                super.onPostExecute(aBoolean);
+
+                Intent intent = new Intent(InscriptionActivity.this, ModifAgenceActivity.class);
+                intent.putExtra("user",
+                        new Utilisateur(
+                        1,
+                        "zef@gmail.com",
+                        "sdoks"));
+                startActivity(intent);
+
+            }
+        }
     }
 }
