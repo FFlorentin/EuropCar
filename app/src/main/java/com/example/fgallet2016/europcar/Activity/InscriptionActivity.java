@@ -19,27 +19,12 @@ public class InscriptionActivity extends AppCompatActivity implements Inscriptio
 
     @Override
     public void ajoutInscrit() {
-        class ConnexionTask extends AsyncTask<Utilisateur, Integer, Boolean>{
-
-
-            @Override
-            protected Boolean doInBackground(Utilisateur... utilisateurs) {
-                return true;
-            }
-
-            @Override
-            protected void onPostExecute(Boolean aBoolean) {
-                super.onPostExecute(aBoolean);
-
-                Intent intent = new Intent(InscriptionActivity.this, ModifAgenceActivity.class);
-                intent.putExtra("user",
-                        new Utilisateur(
+        Intent intent = new Intent(InscriptionActivity.this, ModifAgenceActivity.class);
+        intent.putExtra("user",
+                new Utilisateur(
                         1,
                         "zef@gmail.com",
                         "sdoks"));
-                startActivity(intent);
-
-            }
-        }
+        startActivity(intent);
     }
 }

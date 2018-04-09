@@ -21,6 +21,28 @@ public class Utilisateur implements Parcelable{
         this.password = password;
     }
 
+    protected Utilisateur(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        email = in.readString();
+        password = in.readString();
+    }
+
+    public static final Creator<Utilisateur> CREATOR = new Creator<Utilisateur>() {
+        @Override
+        public Utilisateur createFromParcel(Parcel in) {
+            return new Utilisateur(in);
+        }
+
+        @Override
+        public Utilisateur[] newArray(int size) {
+            return new Utilisateur[size];
+        }
+    };
+
     public Integer getId() {
         return id;
     }

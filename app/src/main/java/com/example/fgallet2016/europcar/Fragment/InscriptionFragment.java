@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.fgallet2016.europcar.R;
@@ -32,6 +33,7 @@ public class InscriptionFragment extends Fragment {
     private EditText emailUser;
     private EditText passwordUser;
     private EditText confirmPasswordUser;
+    private Button sinscrire;
 
     private OnFragmentInteractionListener mListener;
 
@@ -72,28 +74,38 @@ public class InscriptionFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_inscription, container, false);
 
+        this.sinscrire = v.findViewById(R.id.bouton_inscription);
+
         this.emailUser = v.findViewById(R.id.adresse_mail);
         this.passwordUser = v.findViewById(R.id.mot_de_passe);
         this.confirmPasswordUser = v.findViewById(R.id.confirm_mot_de_passe);
 
-        boolean isError = false;
+        sinscrire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        if (emailUser.getText().toString().isEmpty()){
-            emailUser.setError("Veuillez saisir une adresse email");
-            isError = true;
-        }
-        if (passwordUser.getText().toString().isEmpty()){
-            passwordUser.setError("Veuillez saisir un mot de passe");
-            isError = true;
-        }
-        if (!passwordUser.equals(confirmPasswordUser)){
-            confirmPasswordUser.setError("Les mots de passes ne sont pas identiques");
-            isError = true;
-        }
+                boolean isError = false;
 
-        if (!isError){
-            mListener.ajoutInscrit();
-        }
+                if (emailUser.getText().toString().isEmpty()){
+                    emailUser.setError("Veuillez saisir une adresse email");
+                    isError = true;
+                }
+                if (passwordUser.getText().toString().isEmpty()){
+                    passwordUser.setError("Veuillez saisir un mot de passe");
+                    isError = true;
+                }
+                if (!passwordUser.getText().toString().equals(confirmPasswordUser.getText().toString())){
+                    confirmPasswordUser.setError("Les mots de passes ne sont pas identiques");
+                    isError = true;
+                }
+
+                if (!isError){
+                    mListener.ajoutInscrit();
+                }
+            }
+        });
+
+
 
         return v;
     }
