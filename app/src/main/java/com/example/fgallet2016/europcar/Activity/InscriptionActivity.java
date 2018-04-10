@@ -22,9 +22,10 @@ public class InscriptionActivity extends AppCompatActivity implements Inscriptio
         Intent intent = new Intent(InscriptionActivity.this, ModifAgenceActivity.class);
         intent.putExtra("user",
                 new Utilisateur(
-                        1,
+                        "1",
                         "zef@gmail.com",
-                        "sdoks"));
+                        "sdoks",
+                        "zeglk"));
         startActivity(intent);
     }
 }
