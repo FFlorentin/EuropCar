@@ -18,4 +18,6 @@
     <string name="code_postal_modif_agence">Code Postal :</string>
     <string name="ville_modif_agence">Ville :</string>
     <string name="bouton_modifier_modif_agence">Modifier</string>
+    <string name="token_connexion">Token</string>
+    <string name="token_inscription">Token</string>
 </resources>

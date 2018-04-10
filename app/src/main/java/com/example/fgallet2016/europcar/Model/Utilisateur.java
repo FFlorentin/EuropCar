@@ -8,25 +8,24 @@ import android.os.Parcelable;
  */
 
 public class Utilisateur implements Parcelable{
-    private Integer id;
+    private String id;
     private String email;
     private String password;
+    private String token;
 
     public Utilisateur() {
     }
 
-    public Utilisateur(Integer id, String email, String password) {
+    public Utilisateur(String id, String email, String password, String token) {
         this.id = id;
         this.email = email;
         this.password = password;
+        this.token = token;
+
     }
 
     protected Utilisateur(Parcel in) {
-        if (in.readByte() == 0) {
-            id = null;
-        } else {
-            id = in.readInt();
-        }
+        id = in.readString();
         email = in.readString();
         password = in.readString();
     }
@@ -43,11 +42,11 @@ public class Utilisateur implements Parcelable{
         }
     };
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -68,6 +67,12 @@ public class Utilisateur implements Parcelable{
     }
 
 
+    public String getToken() {return token;}
+
+    public void setToken(String token) {this.token = token;}
+
+
+
     @Override
     public String toString() {
         return "Utilisateur{" +
@@ -84,7 +89,7 @@ public class Utilisateur implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(id);
+        parcel.writeString(this.getId());
         parcel.writeString(this.getEmail());
         parcel.writeString(this.getPassword());
     }

@@ -1,64 +1,138 @@
 package com.example.fgallet2016.europcar.Model;
 
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * Created by fgallet2016 on 09/04/2018.
  */
 
-public class Vehicule {
-
-    private int vehiculeID;
+public class Vehicule implements Parcelable{
+    private String id;
+    private Integer nbPlaces;
+    private Integer locationMin;
+    private Integer locationMax;
+    private float tarifMin;
+    private float tarifMax;
+    private float tarifMoyen;
+    private boolean isDisponible;
     private String libelle;
-    private int nbPlaces;
-    private int locationMin;
-    private int locationMax;
-    private int tarifMax;
-    private int tarifMin;
-    private List<Vehicule> vehicules;
-
-    public List<Vehicule> getList() {
-        return this.vehicules;
-    }
-
-    public Vehicule getVehiculeById(int id) {
-        for (Vehicule vehicule : this.vehicules) {
-            if (vehicule.getVehiculeID() == id) {
-                return vehicule;
-            }
-        }
-        return null;
-    }
-
-    public Vehicule(int vehiculeID, String libelle, int nbPlaces, int locationMin, int locationMax, int tarifMax, int tarifMin) {
-        this.vehiculeID = vehiculeID;
-        this.libelle = libelle;
-        this.nbPlaces = nbPlaces;
-        this.locationMin = locationMin;
-        this.locationMax = locationMax;
-        this.tarifMax = tarifMax;
-        this.tarifMin = tarifMin;
-    }
-
-    public Vehicule(String libelle, int nbPlaces, int locationMin, int locationMax, int tarifMax, int tarifMin) {
-        this.libelle = libelle;
-        this.nbPlaces = nbPlaces;
-        this.locationMin = locationMin;
-        this.locationMax = locationMax;
-        this.tarifMax = tarifMax;
-        this.tarifMin = tarifMin;
-    }
 
     public Vehicule() {
-
     }
 
-    public int getVehiculeID() {
-        return vehiculeID;
+    public Vehicule(String id, Integer nbPlaces, Integer locationMin, Integer locationMax,
+                    float tarifMin, float tarifMax, float tarifMoyen,
+                    boolean isDisponible, String libelle) {
+        this.id = id;
+        this.nbPlaces = nbPlaces;
+        this.locationMin = locationMin;
+        this.locationMax = locationMax;
+        this.tarifMin = tarifMin;
+        this.tarifMax = tarifMax;
+        this.tarifMoyen = tarifMoyen;
+        this.isDisponible = isDisponible;
+        this.libelle = libelle;
     }
 
-    public void setVehiculeID(int vehiculeID) {
-        this.vehiculeID = vehiculeID;
+    protected Vehicule(Parcel in) {
+        id = in.readString();
+        if (in.readByte() == 0) {
+            nbPlaces = null;
+        } else {
+            nbPlaces = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            locationMin = null;
+        } else {
+            locationMin = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            locationMax = null;
+        } else {
+            locationMax = in.readInt();
+        }
+        tarifMin = in.readFloat();
+        tarifMax = in.readFloat();
+        tarifMoyen = in.readFloat();
+        isDisponible = in.readByte() != 0;
+        libelle = in.readString();
+    }
+
+    public static final Creator<Vehicule> CREATOR = new Creator<Vehicule>() {
+        @Override
+        public Vehicule createFromParcel(Parcel in) {
+            return new Vehicule(in);
+        }
+
+        @Override
+        public Vehicule[] newArray(int size) {
+            return new Vehicule[size];
+        }
+    };
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Integer getNbPlaces() {
+        return nbPlaces;
+    }
+
+    public void setNbPlaces(Integer nbPlaces) {
+        this.nbPlaces = nbPlaces;
+    }
+
+    public Integer getLocationMin() {
+        return locationMin;
+    }
+
+    public void setLocationMin(Integer locationMin) {
+        this.locationMin = locationMin;
+    }
+
+    public Integer getLocationMax() {
+        return locationMax;
+    }
+
+    public void setLocationMax(Integer locationMax) {
+        this.locationMax = locationMax;
+    }
+
+    public float getTarifMin() {
+        return tarifMin;
+    }
+
+    public void setTarifMin(float tarifMin) {
+        this.tarifMin = tarifMin;
+    }
+
+    public float getTarifMax() {
+        return tarifMax;
+    }
+
+    public void setTarifMax(float tarifMax) {
+        this.tarifMax = tarifMax;
+    }
+
+    public float getTarifMoyen() {
+        return tarifMoyen;
+    }
+
+    public void setTarifMoyen(float tarifMoyen) {
+        this.tarifMoyen = tarifMoyen;
+    }
+
+    public boolean isDisponible() {
+        return isDisponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        isDisponible = disponible;
     }
 
     public String getLibelle() {
@@ -69,43 +143,36 @@ public class Vehicule {
         this.libelle = libelle;
     }
 
-    public int getNbPlaces() {
-        return nbPlaces;
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setNbPlaces(int nbPlaces) {
-        this.nbPlaces = nbPlaces;
-    }
-
-    public int getLocationMin() {
-        return locationMin;
-    }
-
-    public void setLocationMin(int locationMin) {
-        this.locationMin = locationMin;
-    }
-
-    public int getLocationMax() {
-        return locationMax;
-    }
-
-    public void setLocationMax(int locationMax) {
-        this.locationMax = locationMax;
-    }
-
-    public int getTarifMax() {
-        return tarifMax;
-    }
-
-    public void setTarifMax(int tarifMax) {
-        this.tarifMax = tarifMax;
-    }
-
-    public int getTarifMin() {
-        return tarifMin;
-    }
-
-    public void setTarifMin(int tarifMin) {
-        this.tarifMin = tarifMin;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        if (nbPlaces == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(nbPlaces);
+        }
+        if (locationMin == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(locationMin);
+        }
+        if (locationMax == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(locationMax);
+        }
+        dest.writeFloat(tarifMin);
+        dest.writeFloat(tarifMax);
+        dest.writeFloat(tarifMoyen);
+        dest.writeByte((byte) (isDisponible ? 1 : 0));
+        dest.writeString(libelle);
     }
 }

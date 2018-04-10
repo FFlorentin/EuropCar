@@ -54,6 +54,7 @@ public class ConnexionActivity extends AppCompatActivity implements ConnexionFra
 
             EditText emailUser = findViewById(R.id.adresse_mail);
             EditText motDePasse = findViewById(R.id.mot_de_passe);
+            EditText token = findViewById(R.id.token);
 
 
             return true;
