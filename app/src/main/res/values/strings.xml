@@ -4,4 +4,18 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="adresse_mail_connexion">Adresse mail :</string>
+    <string name="mot_de_passe_connexion">Mot de passe :</string>
+    <string name="bouton_connecter_connexion">Se connecter</string>
+    <string name="bouton_inscription_connexion">Inscritpion</string>
+    <string name="adresse_mail_inscription">Adresse mail :</string>
+    <string name="mot_de_passe_inscription">Mot de passe :</string>
+    <string name="confirmer_mot_de_passe_inscription">Confirmer mot de passe :</string>
+    <string name="bouton_s_inscrire_inscription">S\'inscrire</string>
+    <string name="raison_social_modif_agence">Raison Social :</string>
+    <string name="siret_modif_agence">SIRET :</string>
+    <string name="voie_modif_agence">Voie :</string>
+    <string name="code_postal_modif_agence">Code Postal :</string>
+    <string name="ville_modif_agence">Ville :</string>
+    <string name="bouton_modifier_modif_agence">Modifier</string>
 </resources>

@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Raison Social : "/>
+        android:text="@string/raison_social_modif_agence"/>
 
     <EditText
         android:id="@+id/raison_social"
@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SIRET : "/>
+        android:text="@string/siret_modif_agence"/>
 
     <EditText
         android:id="@+id/siret"
@@ -29,7 +29,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Voie : "/>
+        android:text="@string/voie_modif_agence"/>
 
     <EditText
         android:id="@+id/voie"
@@ -39,7 +39,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Code Postal : "/>
+        android:text="@string/code_postal_modif_agence"/>
 
     <EditText
         android:id="@+id/code_postal"
@@ -49,7 +49,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ville : "/>
+        android:text="@string/ville_modif_agence"/>
 
     <EditText
         android:id="@+id/ville"
@@ -60,7 +60,7 @@
         android:id="@+id/bouton_modifier"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Modifier"/>
+        android:text="@string/bouton_modifier_modif_agence"/>
 
 
 </LinearLayout>

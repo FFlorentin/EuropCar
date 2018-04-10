@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.fgallet2016.europcar.R;
 
@@ -27,6 +29,10 @@ public class ConnexionFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private EditText emailUser;
+    private EditText motDePasse;
+    private Button seConnecter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,15 +71,39 @@ public class ConnexionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_connexion, container, false);
+        View v =  inflater.inflate(R.layout.fragment_connexion, container, false);
+
+        emailUser = v.findViewById(R.id.adresse_mail);
+        motDePasse = v.findViewById(R.id.mot_de_passe);
+
+        seConnecter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isError = false;
+                if (emailUser.getText().toString().isEmpty()) {
+                    emailUser.setError("Veuillez saisir un email");
+                    isError = true;
+                }
+                if (motDePasse.getText().toString().isEmpty()) {
+                    motDePasse.setError("Veuillez saisir un mot de passe");
+                    isError = true;
+                }
+
+                if (!isError) {
+
+                }
+            }
+        });
+
+        return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+/*    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
-    }
+    }*/
 
     @Override
     public void onAttach(Context context) {
@@ -104,6 +134,6 @@ public class ConnexionFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void seConnecter();
     }
 }

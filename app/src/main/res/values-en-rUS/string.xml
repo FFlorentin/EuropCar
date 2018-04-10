@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">EuropCar</string>
+    <string name="title_activity_connexion">ConnexionActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="adresse_mail_connexion">Mail address :</string>
+    <string name="mot_de_passe_connexion">Password :</string>
+    <string name="bouton_connecter_connexion">Sign in</string>
+    <string name="bouton_inscription_connexion">Sign up</string>
+    <string name="adresse_mail_inscription">Mail address :</string>
+    <string name="mot_de_passe_inscription">Password :</string>
+    <string name="confirmer_mot_de_passe_inscription">Confirm Password :</string>
+    <string name="bouton_s_inscrire_inscription">Password</string>
+    <string name="raison_social_modif_agence">Corporate name :</string>
+    <string name="siret_modif_agence">SIRET :</string>
+    <string name="voie_modif_agence">Address :</string>
+    <string name="code_postal_modif_agence">Postal code :</string>
+    <string name="ville_modif_agence">City :</string>
+    <string name="bouton_modifier_modif_agence">Edit</string>
+</resources>

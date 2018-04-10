@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.fgallet2016.europcar.Fragment.ModifAgenceFragment;
+import com.example.fgallet2016.europcar.Model.Utilisateur;
 import com.example.fgallet2016.europcar.R;
 
 public class ModifAgenceActivity extends AppCompatActivity {
@@ -47,4 +49,32 @@ public class ModifAgenceActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Utilisateur utilisateur = getIntent().getParcelableExtra("user");
+        Toast.makeText(this,
+                "Utilisateur : " + utilisateur.getId() + " (" + utilisateur.getEmail() + " )",
+                Toast.LENGTH_SHORT).show();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
