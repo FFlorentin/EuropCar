@@ -32,6 +32,7 @@ public class ConnexionFragment extends Fragment {
 
     private EditText emailUser;
     private EditText motDePasse;
+    private EditText token;
     private Button seConnecter;
 
     private OnFragmentInteractionListener mListener;
@@ -75,6 +76,8 @@ public class ConnexionFragment extends Fragment {
 
         emailUser = v.findViewById(R.id.adresse_mail);
         motDePasse = v.findViewById(R.id.mot_de_passe);
+        token = v.findViewById(R.id.token);
+
 
         seConnecter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,9 +91,14 @@ public class ConnexionFragment extends Fragment {
                     motDePasse.setError("Veuillez saisir un mot de passe");
                     isError = true;
                 }
+                if (token.getText().toString().isEmpty()) {
+                    token.setError("Veuillez saisir votre token");
+                    isError = true;
+                }
+
 
                 if (!isError) {
-
+                    mListener.seConnecter();
                 }
             }
         });
