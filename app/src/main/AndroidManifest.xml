@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.ModifAgenceActivity">
         </activity>
-        <activity android:name=".Activity.InscriptionActivity" >
+        <activity android:name=".Activity.ListeVehiculeActivity" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.ConnexionActivity" />
-        <activity android:name=".Activity.ListeVehiculeActivity" />
+        <!-- <activity android:name=".Activity.ListeVehiculeActivity" /> -->
         <activity android:name=".Activity.LocationVehiculeActivity" />
-
+        <activity android:name=".Activity.ReservationActivity" />
         <service
             android:name=".Service.VehiculeService"
             android:enabled="true"

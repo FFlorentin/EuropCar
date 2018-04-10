@@ -5,10 +5,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <fragment
-        android:id="@+id/fragment_liste_vehicule"
+        android:id="@+id/fragment_liste_resultat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="com.example.fgallet2016.europcar.Fragment.ListeVehiculeFragment"
+        class="com.example.fgallet2016.europcar.Fragment.ListeReservationFragment"
         ></fragment>
 
 

@@ -11,16 +11,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.fgallet2016.europcar.Adapter.ReservationAdapter;
-import com.example.fgallet2016.europcar.Adapter.VehiculeAdapter;
 import com.example.fgallet2016.europcar.Model.Reservation;
-import com.example.fgallet2016.europcar.Model.Vehicule;
 import com.example.fgallet2016.europcar.R;
 
 import java.util.List;
 
-public class ListeVehiculeFragment extends Fragment {
+public class ListeReservationFragment extends Fragment {
 
-    public ListeVehiculeFragment() {
+    public ListeReservationFragment() {
         // Required empty public constructor
     }
 
@@ -29,17 +27,17 @@ public class ListeVehiculeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_liste_vehicule, container, false);
+        return inflater.inflate(R.layout.fragment_liste_reservation, container, false);
     }
 
-    public void setListe(List<Vehicule> vehicules){
+    public void setListe(List<Reservation> reservations){
 
-        ListView listeResultats = this.getView().findViewById(R.id.liste_vehicule);
+        ListView listeResultats = this.getView().findViewById(R.id.liste_reservation);
 
-        ArrayAdapter adapter = new VehiculeAdapter(
+        ArrayAdapter adapter = new ReservationAdapter(
                 this.getContext(),
-                R.layout.ligne_vehicule,
-                vehicules);
+                R.layout.ligne_reservation,
+                reservations);
 
         listeResultats.setAdapter(adapter);
 

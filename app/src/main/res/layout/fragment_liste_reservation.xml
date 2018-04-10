@@ -3,16 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.example.fgallet2016.europcar.Fragment.ListeVehiculeFragment">
+    tools:context="com.example.fgallet2016.europcar.Fragment.ListeReservationFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ListView
-            android:id="@+id/liste_vehicule"
+            android:id="@+id/liste_reservation"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/bouton_liste_vehicule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_circle_black_24dp"/>
     </LinearLayout>
 </LinearLayout>
