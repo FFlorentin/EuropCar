@@ -60,7 +60,7 @@ public class VehiculeAdapter extends ArrayAdapter<Vehicule> {
         tarifMax = convertView.findViewById(R.id.tarif_max);
         nbPlace = convertView.findViewById(R.id.nb_place);
 
-        idVehicule.setText(String.valueOf(vehicule.getVehiculeID()));
+        idVehicule.setText(String.valueOf(vehicule.getId()));
         libelle.setText(vehicule.getLibelle());
         locationMin.setText(String.valueOf(vehicule.getLocationMin()));
         locationMax.setText(String.valueOf(vehicule.getLocationMax()));

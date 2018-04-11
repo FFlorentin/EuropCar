@@ -35,6 +35,17 @@ public class Vehicule implements Parcelable{
         this.libelle = libelle;
     }
 
+    public Vehicule(String id, String libelle, Integer nbPlaces, Integer locationMin, Integer locationMax,
+                    float tarifMin, float tarifMax) {
+        this.id = id;
+        this.nbPlaces = nbPlaces;
+        this.locationMin = locationMin;
+        this.locationMax = locationMax;
+        this.tarifMin = tarifMin;
+        this.tarifMax = tarifMax;
+        this.libelle = libelle;
+    }
+
     protected Vehicule(Parcel in) {
         id = in.readString();
         if (in.readByte() == 0) {

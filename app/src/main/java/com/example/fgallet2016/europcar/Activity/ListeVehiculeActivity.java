@@ -36,12 +36,12 @@ public class ListeVehiculeActivity extends AppCompatActivity {
                 getSupportFragmentManager().findFragmentById(R.id.fragment_liste_vehicule);
 
         final List<Vehicule> vehicules = new ArrayList<>();
-        vehicules.add(new Vehicule(1,"Audi A3",5,5,5,1,0));
-        vehicules.add(new Vehicule(2,"Porche Cayenne",5,2,6,200,15));
-        vehicules.add(new Vehicule(3,"Fiat Panda",5,1,3,56,1));
-        vehicules.add(new Vehicule(4,"Opel Insigna",3,1,6,2,1));
-        vehicules.add(new Vehicule(5,"Renault Scénic",2,5,856,6,2));
-        vehicules.add(new Vehicule(6,"Citroen C3",3,5,1,51,6));
+        vehicules.add(new Vehicule("1","Audi A3",5,5,5,1,0));
+        vehicules.add(new Vehicule("2","Porche Cayenne",5,2,6,200,15));
+        vehicules.add(new Vehicule("3","Fiat Panda",5,1,3,56,1));
+        vehicules.add(new Vehicule("4","Opel Insigna",3,1,6,2,1));
+        vehicules.add(new Vehicule("5","Renault Scénic",2,5,856,6,2));
+        vehicules.add(new Vehicule("6","Citroen C3",3,5,1,51,6));
 
         fragment.setListe(vehicules);
 
@@ -51,7 +51,7 @@ public class ListeVehiculeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(ListeVehiculeActivity.this, ReservationActivity.class);
-                intent.putExtra("id_vehicule", vehicules.get(i).getVehiculeID());
+                intent.putExtra("id_vehicule", vehicules.get(i).getId());
                 startActivity(intent);
 
             }
