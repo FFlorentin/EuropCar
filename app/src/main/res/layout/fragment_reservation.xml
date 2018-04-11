@@ -11,4 +11,24 @@
         android:layout_height="wrap_content"
         layout="@layout/ligne_vehicule" />
 
+
+    <EditText
+        android:id="@+id/edit_date_debut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date debut"
+        android:inputType="datetime"
+        android:focusable="false"/>
+
+    <TextView
+        android:id="@+id/tarif_journalier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tarif journalier"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reserver"/>
+
 </LinearLayout>
