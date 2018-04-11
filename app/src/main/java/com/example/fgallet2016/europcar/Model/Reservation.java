@@ -23,6 +23,13 @@ public class Reservation implements Parcelable{
         this.tarifJournalier = tarifJournalier;
     }
 
+    public Reservation(String vehicule, String dateDebut, String dateFin, String tarifJournalier) {
+        this.vehicule = vehicule;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.tarifJournalier = tarifJournalier;
+    }
+
     public Reservation() {
 
     }
