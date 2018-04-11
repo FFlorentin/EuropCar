@@ -13,13 +13,20 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.example.fgallet2016.europcar.DAO.UtilisateurDAO;
 import com.example.fgallet2016.europcar.Fragment.ConnexionFragment;
 import com.example.fgallet2016.europcar.Model.Utilisateur;
 import com.example.fgallet2016.europcar.R;
 
 public class ConnexionActivity extends AppCompatActivity implements ConnexionFragment.OnFragmentInteractionListener{
 
+    private EditText emailUser;
+    private EditText motDePasse;
+    private EditText token;
+
+    private UtilisateurDAO utilisateurDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,41 +38,28 @@ public class ConnexionActivity extends AppCompatActivity implements ConnexionFra
 
     @Override
     public void seConnecter() {
-        ConnexionTask task = new ConnexionTask();
-        task.execute();
-    }
+        emailUser = findViewById(R.id.adresse_mail);
+        motDePasse = findViewById(R.id.mot_de_passe);
+        token = findViewById(R.id.token);
+
+        Utilisateur utilisateur = new Utilisateur();
+
+        //utilisateur = utilisateurDAO.findUser(emailUser.getText().toString(), motDePasse.getText().toString(), token.getText().toString());
 
 
-    public class ConnexionTask extends AsyncTask<Utilisateur, Integer, Boolean> {
-        @Override
-        protected Boolean doInBackground(Utilisateur... utilisateurs) {
-            for (int i = 0; i < 10; i++) {
-                try {
-                    Thread.sleep(500);
-                    publishProgress(i, 10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+        if (emailUser.getText().toString().equals("a")
+                && motDePasse.getText().toString().equals("a")
+                && token.getText().toString().equals("a")){
 
-            SharedPreferences sharedPreferences =
-                    getSharedPreferences("user", MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-
-            EditText emailUser = findViewById(R.id.adresse_mail);
-            EditText motDePasse = findViewById(R.id.mot_de_passe);
-            EditText token = findViewById(R.id.token);
-
-
-            return true;
+            Intent intent = new Intent(ConnexionActivity.this, ListeReservationActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(ConnexionActivity.this,"L'email, le mot de passe ou le token ne sont pas corrects",
+                    Toast.LENGTH_SHORT).show();
         }
 
-        @Override
-        protected void onPostExecute(Boolean aBoolean) {
-            super.onPostExecute(aBoolean);
 
-            /*Intent intent = new Intent(ConnexionActivity.this, );
-            startActivity(intent);*/
-        }
     }
+
 }

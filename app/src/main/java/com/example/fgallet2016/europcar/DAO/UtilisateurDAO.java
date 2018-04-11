@@ -31,4 +31,8 @@ public interface UtilisateurDAO {
     @Query("SELECT * FROM utilisateur WHERE id = (:id) LIMIT 1")
     Utilisateur getById(String id);
 
+    @Query("SELECT * FROM utilisateur WHERE email = (:email) AND password = (:password) " +
+            "AND token = (:token) LIMIT 1")
+    Utilisateur findUser(String email, String password, String token);
+
 }

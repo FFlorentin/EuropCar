@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.fgallet2016.europcar.DAO.UtilisateurDAO;
+import com.example.fgallet2016.europcar.Model.Utilisateur;
 import com.example.fgallet2016.europcar.R;
 
 /**
@@ -33,7 +35,10 @@ public class InscriptionFragment extends Fragment {
     private EditText emailUser;
     private EditText passwordUser;
     private EditText confirmPasswordUser;
+    private EditText token;
     private Button sinscrire;
+
+    private UtilisateurDAO utilisateurDAO;
 
     private OnFragmentInteractionListener mListener;
 
@@ -79,6 +84,7 @@ public class InscriptionFragment extends Fragment {
         this.emailUser = v.findViewById(R.id.adresse_mail);
         this.passwordUser = v.findViewById(R.id.mot_de_passe);
         this.confirmPasswordUser = v.findViewById(R.id.confirm_mot_de_passe);
+        this.token = v.findViewById(R.id.token);
 
         sinscrire.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,8 +104,18 @@ public class InscriptionFragment extends Fragment {
                     confirmPasswordUser.setError("Les mots de passes ne sont pas identiques");
                     isError = true;
                 }
+                if (token.getText().toString().isEmpty()){
+                    token.setError("Veuillez saisir un token");
+                    isError = true;
+                }
 
                 if (!isError){
+                    Utilisateur utilisateur = new Utilisateur();
+                    utilisateur.setEmail(emailUser.getText().toString());
+                    utilisateur.setPassword(passwordUser.getText().toString());
+                    utilisateur.setToken(token.getText().toString());
+                    utilisateurDAO.insert(utilisateur);
+
                     mListener.ajoutInscrit();
                 }
             }

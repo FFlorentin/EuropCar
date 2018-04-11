@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.fgallet2016.europcar.DAO.UtilisateurDAO;
 import com.example.fgallet2016.europcar.R;
 
 /**
@@ -77,6 +79,7 @@ public class ConnexionFragment extends Fragment {
         emailUser = v.findViewById(R.id.adresse_mail);
         motDePasse = v.findViewById(R.id.mot_de_passe);
         token = v.findViewById(R.id.token);
+        seConnecter = v.findViewById(R.id.se_connecter);
 
 
         seConnecter.setOnClickListener(new View.OnClickListener() {
