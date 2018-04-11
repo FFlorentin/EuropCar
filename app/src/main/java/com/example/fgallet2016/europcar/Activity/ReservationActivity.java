@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.fgallet2016.europcar.Model.Vehicule;
 import com.example.fgallet2016.europcar.R;
+import com.example.fgallet2016.europcar.Service.VehiculeService;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class ReservationActivity extends AppCompatActivity {
     private TextView tarifMax;
     private TextView nbPlace;
 
-    private Vehicule vehicules;
+    private VehiculeService vehicules;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +36,11 @@ public class ReservationActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        int id = intent.getIntExtra("id_vehicule",0);
+        String id = intent.getStringExtra("id_vehicule");
+
 
         // Appel du service pour récupérer le véhicule
-        Vehicule vehicule = this.vehicules.getVehiculeById(id);
+        Vehicule vehicule = this.vehicules.getVehiculeById(Integer.valueOf(id));
 
         idVehicule = findViewById(R.id.id_vehicule);
         libelle = findViewById(R.id.libelle);
@@ -48,7 +50,7 @@ public class ReservationActivity extends AppCompatActivity {
         tarifMax = findViewById(R.id.tarif_max);
         nbPlace = findViewById(R.id.nb_place);
 
-        idVehicule.setText(String.valueOf(vehicule.getVehiculeID()));
+        idVehicule.setText(String.valueOf(vehicule.getId()));
         libelle.setText(vehicule.getLibelle());
         locationMin.setText(String.valueOf(vehicule.getLocationMin()));
         locationMax.setText(String.valueOf(vehicule.getLocationMax()));
