@@ -46,7 +46,7 @@ public class ReservationAdapter extends ArrayAdapter<Reservation> {
             convertView = inflater.inflate(this.layout, parent, false);
         }
 
-        Reservation reservation = this.reservations.get(position);
+        Reservation reservation = this.getItem(position);
 
         vehicule = convertView.findViewById(R.id.vehicule_id);
         dateDebut = convertView.findViewById(R.id.date_debut);

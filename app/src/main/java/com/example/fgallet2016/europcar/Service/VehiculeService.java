@@ -29,7 +29,7 @@ public class VehiculeService {
 
     public Vehicule getVehiculeById(String id) {
         for (Vehicule vehicule : this.vehicules) {
-            if (vehicule.getId() == id) {
+            if (vehicule.getId().equals(id)) {
                 return vehicule;
             }
         }
@@ -42,7 +42,7 @@ public class VehiculeService {
 
     public void delete(String id) {
         for (Vehicule vehicule : this.vehicules) {
-            if (vehicule.getId() == id) {
+            if (vehicule.getId().equals(id)) {
                 this.vehicules.remove(vehicule);
                 return;
             }

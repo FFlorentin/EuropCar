@@ -17,10 +17,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fgallet2016.europcar.DAO.ReservationDAO;
 import com.example.fgallet2016.europcar.Fragment.RetourFragment;
+import com.example.fgallet2016.europcar.Model.Reservation;
 import com.example.fgallet2016.europcar.R;
+import com.example.fgallet2016.europcar.Service.ReservationService;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -35,6 +39,27 @@ public class RetourActivity extends AppCompatActivity implements RetourFragment.
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        String id = getIntent().getStringExtra("id");
+        ReservationService service = new ReservationService();
+        Reservation reservation = service.getReservationById(id);
+
+        if (reservation != null){
+            TextView libelle = findViewById(R.id.libelle);
+            TextView dateDebut = findViewById(R.id.date_debut);
+            TextView dateFin = findViewById(R.id.date_fin);
+            TextView tarifJournalier = findViewById(R.id.tarif_journalier);
+
+            libelle.setText(reservation.getVehicule());
+            dateDebut.setText(reservation.getDateDebut());
+            dateFin.setText(reservation.getDateFin());
+            tarifJournalier.setText(reservation.getTarifJournalier());
+
+        }
+    }
 
     private Uri file;
 

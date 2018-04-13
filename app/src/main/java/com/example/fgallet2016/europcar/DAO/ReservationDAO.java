@@ -8,6 +8,8 @@ import android.arch.persistence.room.Update;
 
 import com.example.fgallet2016.europcar.Model.Reservation;
 
+import java.util.List;
+
 /**
  * Created by Administrateur on 10/04/2018.
  */
@@ -21,11 +23,12 @@ public interface ReservationDAO {
     String[] insertAll(Reservation... reservations);
 
     @Delete
-    void delete(Reservation reservation);
+    void delete(String reservation);
 
     @Update
     void update(Reservation reservation);
 
     @Query("SELECT * FROM reservation WHERE id = (:id) LIMIT 1")
     Reservation getById(String id);
+
 }

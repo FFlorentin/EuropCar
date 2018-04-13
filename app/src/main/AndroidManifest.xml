@@ -13,29 +13,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.ModifAgenceActivity"></activity>
-        <activity android:name=".Activity.ListeVehiculeActivity"></activity>
+        <activity android:name=".Activity.ModifAgenceActivity" />
+        <activity android:name=".Activity.ListeVehiculeActivity" />
         <activity android:name=".Activity.ConnexionActivity">
+
+        </activity>
+        <!-- <activity android:name=".Activity.ListeVehiculeActivity" /> -->
+        <activity android:name=".Activity.LocationVehiculeActivity" />
+        <activity android:name=".Activity.ReservationActivity" />
+        <activity android:name=".Activity.ListeReservationActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- <activity android:name=".Activity.ListeVehiculeActivity" /> -->
-        <activity android:name=".Activity.LocationVehiculeActivity" />
-        <activity android:name=".Activity.ReservationActivity" />
-        <activity android:name=".Activity.ListeReservationActivity" />
 
         <service
             android:name=".Service.VehiculeService"
             android:enabled="true"
             android:exported="true" />
 
-        <activity
-            android:name=".Activity.RetourActivity"
-            android:label="@string/title_activity_retour"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Activity.RetourActivity">
+
+        </activity>
+
+        <service
+            android:name=".Service.ReservationService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

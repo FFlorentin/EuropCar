@@ -4,12 +4,17 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
+import com.example.fgallet2016.europcar.Adapter.ReservationAdapter;
+import com.example.fgallet2016.europcar.Adapter.VehiculeAdapter;
 import com.example.fgallet2016.europcar.Fragment.ListeReservationFragment;
 import com.example.fgallet2016.europcar.Model.Reservation;
 import com.example.fgallet2016.europcar.R;
+import com.example.fgallet2016.europcar.Service.ReservationService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +22,9 @@ import java.util.List;
 public class ListeReservationActivity extends AppCompatActivity {
 
     private ImageButton bouton_liste_vehicule;
+    private ListView listReservation;
+
+    private ReservationAdapter reservationAdapter;
 
     private ListeReservationFragment fragment;
 
@@ -24,24 +32,28 @@ public class ListeReservationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_reservation);
+
+        listReservation = findViewById(R.id.liste_reservation);
+
+        listReservation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Reservation reservation = (Reservation) reservationAdapter.getItem(position);
+                Intent intent = new Intent(ListeReservationActivity.this, RetourActivity.class);
+                intent.putExtra("id", reservation.getId());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        ReservationService service = new ReservationService();
 
-        fragment = (ListeReservationFragment)
-                getSupportFragmentManager().findFragmentById(R.id.fragment_liste_resultat);
+        reservationAdapter = new ReservationAdapter(this, R.layout.ligne_reservation, service.getList());
 
-        List<Reservation> reservations = new ArrayList<>();
-        reservations.add(new Reservation("Audi A3","01-06-2015","09-06-2015","15€"));
-        reservations.add(new Reservation("Porche Cayenne","02-04-2012","18-06-2012","30€"));
-        reservations.add(new Reservation("Fiat Panda","09-12-2017","15-12-2017","0.50€"));
-        reservations.add(new Reservation("Opel Insigna","22-09-2002","26-09-2002","10€"));
-        reservations.add(new Reservation("Renault Scénic","18-11-2014","19-11-2014","5€"));
-        reservations.add(new Reservation("Citroen C3","19-11-2015","19-11-2016","6€"));
-
-        fragment.setListe(reservations);
+        listReservation.setAdapter(reservationAdapter);
 
         bouton_liste_vehicule = findViewById(R.id.bouton_liste_vehicule);
 
