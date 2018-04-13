@@ -20,4 +20,5 @@
     <string name="bouton_modifier_modif_agence">Modifier</string>
     <string name="token_connexion">Token</string>
     <string name="token_inscription">Token</string>
+    <string name="title_activity_retour">RetourActivity</string>
 </resources>

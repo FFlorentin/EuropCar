@@ -1,0 +1,109 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.fgallet2016.europcar.Fragment.RetourFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/libelle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Libelle vehicule"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/date_debut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date début"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" - "/>
+
+            <TextView
+                android:id="@+id/date_fin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date fin"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tarif_journalier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tarif journalier"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/est_endommagé"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Est endommagé" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/plein"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Le plein est fait" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/nombre_km"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre de kilomètres"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/ajouter_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ajouter une photo" />
+
+            <Button
+                android:id="@+id/rendre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="rendre" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>
